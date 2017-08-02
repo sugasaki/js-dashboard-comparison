@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<!--*
+ The MIT License
+
+ Copyright (c) 2015, Sebastian Sdorra
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="dashboard sample app">
+    <meta name="author" content="Sebastian Sdorra">
+
+    <title>Dashboard</title>
+
+    <!-- build:css css/sample.min.css -->
+    <!-- Bootstrap core CSS -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="bower_components/angular-bootstrap/ui-bootstrap-csp.css" rel="stylesheet" />
+
+
+    <!-- dashboard style -->
+    <link href="bower_components/angular-dashboard-framework/dist/angular-dashboard-framework.min.css" rel="stylesheet" />
+
+
+    <link href="bower_components/adf-widget-travis/dist/adf-widget-travis.min.css" rel="stylesheet" />
+    <link href="bower_components/adf-widget-clock/dist/adf-widget-clock.min.css" rel="stylesheet" />
+    <link href="bower_components/adf-widget-iframe/dist/adf-widget-iframe.css" rel="stylesheet" />
+
+
+    <!-- endbuild -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!--[if lte IE 8]>
+      <script>
+        document.createElement('adf-dashboard');
+        document.createElement('adf-widget');
+        document.createElement('adf-widget-content');
+        document.createElement('adf-dashboard-row');
+        document.createElement('adf-dashboard-column');
+
+        document.createElement('highchart');
+      </script>
+    <![endif]-->
+
+    <!-- inlince css -->
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+      }
+      /* fixe for modal-backdrop*/
+      .modal-backdrop {
+        bottom: 0;
+        /* some fixes appear to use this, too: */
+        position: fixed;
+      }
+    </style>
+  </head>
+
+  <body ng-app="sample">
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container" ng-controller="navigationCtrl">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" ng-click="toggleNav()">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#/sample-01">ADF</a>
+        </div>
+        <div uib-collapse="navCollapsed" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li ng-class="navClass('sample/01')">
+              <a href="#/sample/01">Sample 01</a>
+            </li>
+            <li ng-class="navClass('sample/02')">
+              <a href="#/sample/02">Sample 02</a>
+            </li>
+            <li ng-class="navClass('sample/03')">
+              <a href="#/sample/03">Sample 03</a>
+            </li>
+            <li ng-class="navClass('sample/04')">
+              <a href="#/sample/04">Sample 04</a>
+            </li>
+            <li ng-class="navClass('sample/05')">
+              <a href="#/sample/05">Sample 05</a>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div ng-view />
+
+    </div>
+
+    <!-- build:js js/angular.min.js -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+
+    <!-- build:js js/sample.min.js -->
+    <!-- Sortable -->
+    <script src="bower_components/Sortable/Sortable.min.js"></script>
+
+    <!-- angular-bootstrap -->
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+
+    <!-- angular-dashboard-framework -->
+    <script src="bower_components/angular-dashboard-framework/dist/angular-dashboard-framework.min.js"></script>
+
+
+    <!-- local storage -->
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
+
+    <!-- sample -->
+    <script src="scripts/sample-01.js"></script>
+    <script src="scripts/sample-02.js"></script>
+    <script src="scripts/sample-03.js"></script>
+    <script src="scripts/sample-04.js"></script>
+    <script src="scripts/sample-05.js"></script>
+    <script src="scripts/sample.js"></script>
+
+
+    <!-- structures -->
+    <script src="bower_components/adf-structures-base/dist/adf-structures-base.min.js"></script>
+
+    <!-- news widget -->
+    <script src="bower_components/adf-widget-news/dist/adf-widget-news.min.js"></script>
+
+    <!-- weather widget -->
+    <!--<script src="bower_components/adf-widget-weather/dist/adf-widget-weather.min.js"></script>-->
+    <script src="bower_components/adf-widget-weather/dist/adf-widget-weather.js"></script>
+
+    <!-- linklist widget -->
+    <script src="bower_components/adf-widget-linklist/dist/adf-widget-linklist.min.js"></script>
+
+    <!-- markdown widget -->
+    <script src="bower_components/showdown/src/showdown.js"></script>
+    <script src="bower_components/angular-markdown-directive/markdown.js"></script>
+    <script src="bower_components/adf-widget-markdown/dist/adf-widget-markdown.min.js"></script>
+
+    <!-- randommsg widget -->
+    <script src="bower_components/adf-widget-randommsg/dist/adf-widget-randommsg.min.js"></script>
+
+    <!--github widget  -->
+    <!--
+    <script type="text/javascript" src="widgets/github/components/Chart.js/Chart.js"></script>
+    <script type="text/javascript" src="widgets/github/components/angular-chart.js/dist/angular-chart.js"></script>
+    <script type="text/javascript" src="widgets/github/src/github.js"></script>
+    <script type="text/javascript" src="widgets/github/src/service.js"></script>
+    <script type="text/javascript" src="widgets/github/src/author.controller.js"></script>
+    <script type="text/javascript" src="widgets/github/src/commits.controller.js"></script>
+    <script type="text/javascript" src="widgets/github/src/history.controller.js"></script>
+    <script type="text/javascript" src="widgets/github/src/issues.controller.js"></script>
+    <script type="text/javascript" src="widgets/github/src/events.controller.js"></script>-->
+
+    <!-- version widget -->
+    <script src="bower_components/adf-widget-version/dist/adf-widget-version.min.js"></script>
+
+    <!-- clock widget -->
+    <script src="bower_components/moment/min/moment.min.js"></script>
+    <script src="bower_components/adf-widget-clock/dist/adf-widget-clock.min.js"></script>
+
+    <!-- travis widget -->
+    <script src="bower_components/angular-md5/angular-md5.min.js"></script>
+    <script src="bower_components/adf-widget-travis/dist/adf-widget-travis.min.js"></script>
+
+    <!-- inject:js -->
+    <!-- endinject -->
+
+
+    <!-- endbuild -->
+  </body>
+</html>
