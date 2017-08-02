@@ -1,0 +1,44 @@
+{
+  "name": "adf-widget-github",
+  "version": "0.6.1",
+  "main": "dist/adf-widget-github.js",
+  "ignore": [
+    "bower.json",
+    ".bowerrc",
+    ".jshintrc",
+    ".gitignore",
+    "gulpfile.js",
+    "node_modules",
+    "package.json",
+    "components",
+    "src"
+  ],
+  "keywords": [
+    "dashboard",
+    "widget",
+    "adf",
+    "adf-widget",
+    "github"
+  ],
+  "description": "Github widgets for the angular-dashboard-framework",
+  "dependencies": {
+    "angular": ">=1.4 <1.6",
+    "angular-dashboard-framework": "~0.12.0",
+    "angular-chart.js": "^1.1.1"
+  },
+  "devDependencies": {
+    "angular-local-storage": "0.1.5"
+  },
+  "resolutions": {
+    "angular-bootstrap": "~1.1.2",
+    "bootstrap": "^3.3.6",
+    "Sortable": "~1.4.2"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.css"
+      ]
+    }
+  }
+}
